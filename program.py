@@ -16,8 +16,12 @@ btnFont=("Arail", 19)
 #design frame
 displayFrame=LabelFrame(root)
 buttonFrame=LabelFrame(root)
-
 displayFrame.pack(padx=2, pady=5)
 buttonFrame.pack(pady=2)
+
+#dipsplay Frame
+display=Entry(displayFrame, width=30, font=displayFont, bg="white", border=5, justify=RIGHT) # justify is curser position. 
+display.pack(padx=5, pady=5)
+
 
 root.mainloop()
