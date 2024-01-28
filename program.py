@@ -7,6 +7,9 @@ root.iconbitmap("icon/cal-logo.ico")
 root.geometry("300x400")
 root.resizable(0, 0)
 
+def showNumber(number):
+    display.insert(END, number) #Let the numbers follow each other.
+
 #settings
 color="orange"
 displayFont=("Arail", 35)
@@ -42,16 +45,16 @@ btnDecimal=Button(buttonFrame, text=".", font=btnFont, bg=color)
 btnNegate=Button(buttonFrame, text="+/-", font=btnFont, bg=color)
 
 #number button
-btn9=Button(buttonFrame, text="9", font=btnFont, bg="black", fg="white")
-btn8=Button(buttonFrame, text="8", font=btnFont, bg="black", fg="white")
-btn7=Button(buttonFrame, text="7", font=btnFont, bg="black", fg="white")
-btn6=Button(buttonFrame, text="6", font=btnFont, bg="black", fg="white")
-btn5=Button(buttonFrame, text="5", font=btnFont, bg="black", fg="white")
-btn4=Button(buttonFrame, text="4", font=btnFont, bg="black", fg="white")
-btn3=Button(buttonFrame, text="3", font=btnFont, bg="black", fg="white")
-btn2=Button(buttonFrame, text="2", font=btnFont, bg="black", fg="white")
-btn1=Button(buttonFrame, text="1", font=btnFont, bg="black", fg="white")
-btn0=Button(buttonFrame, text="0", font=btnFont, bg="black", fg="white")
+btn9=Button(buttonFrame, text="9", font=btnFont, bg="black", fg="white", command=lambda:showNumber(9))
+btn8=Button(buttonFrame, text="8", font=btnFont, bg="black", fg="white", command=lambda:showNumber(8))
+btn7=Button(buttonFrame, text="7", font=btnFont, bg="black", fg="white", command=lambda:showNumber(7))
+btn6=Button(buttonFrame, text="6", font=btnFont, bg="black", fg="white", command=lambda:showNumber(6))
+btn5=Button(buttonFrame, text="5", font=btnFont, bg="black", fg="white", command=lambda:showNumber(5))
+btn4=Button(buttonFrame, text="4", font=btnFont, bg="black", fg="white", command=lambda:showNumber(4))
+btn3=Button(buttonFrame, text="3", font=btnFont, bg="black", fg="white", command=lambda:showNumber(3))
+btn2=Button(buttonFrame, text="2", font=btnFont, bg="black", fg="white", command=lambda:showNumber(2))
+btn1=Button(buttonFrame, text="1", font=btnFont, bg="black", fg="white", command=lambda:showNumber(1))
+btn0=Button(buttonFrame, text="0", font=btnFont, bg="black", fg="white", command=lambda:showNumber(0))
 
 #row1
 btnInverse.grid(row=1, column=0, pady=1, ipadx=10, sticky="WE")
