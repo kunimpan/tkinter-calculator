@@ -9,6 +9,9 @@ root.resizable(0, 0)
 
 def showNumber(number):
     display.insert(END, number) #Let the numbers follow each other.
+    
+    if "." in display.get():
+        btnDecimal.config(state=DISABLED)
 
 #settings
 color="orange"
@@ -41,7 +44,7 @@ btnMultiply=Button(buttonFrame, text="x", font=btnFont, bg=color)
 btnSubtract=Button(buttonFrame, text="-", font=btnFont, bg=color)
 btnAdd=Button(buttonFrame, text="+", font=btnFont, bg=color)
 btnEqual=Button(buttonFrame, text="=", font=btnFont, bg=color)
-btnDecimal=Button(buttonFrame, text=".", font=btnFont, bg=color)
+btnDecimal=Button(buttonFrame, text=".", font=btnFont, bg=color, command=lambda:showNumber("."))
 btnNegate=Button(buttonFrame, text="+/-", font=btnFont, bg=color)
 
 #number button
