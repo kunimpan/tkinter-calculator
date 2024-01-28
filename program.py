@@ -12,6 +12,25 @@ def showNumber(number):
     if "." in display.get():
         btnDecimal.config(state=DISABLED)
 
+def equal():
+    if operator == "add":
+        result = float(firstNumber) + float(display.get())
+    elif operator == "subtract":
+        result = float(firstNumber) - float(display.get())
+    elif operator == "multiply":
+        result = float(firstNumber) * float(display.get())
+    elif operator == "divide":
+        if display.get() == "0":
+            result = "ERROR"
+        else:
+            result = float(firstNumber) / float(display.get())
+    elif operator == "exponent":
+        result = float(firstNumber) ** float(display.get())
+    
+    display.delete(0, END) # Clear.
+    display.insert(0, result) # Show result.
+        
+
 def operation(value):
     global firstNumber
     global operator
@@ -61,7 +80,7 @@ btnDivide=Button(buttonFrame, text="/", font=btnFont, bg=color, command=lambda:o
 btnMultiply=Button(buttonFrame, text="x", font=btnFont, bg=color, command=lambda:operation("multiply"))
 btnSubtract=Button(buttonFrame, text="-", font=btnFont, bg=color, command=lambda:operation("subtract"))
 btnAdd=Button(buttonFrame, text="+", font=btnFont, bg=color, command=lambda:operation("add"))
-btnEqual=Button(buttonFrame, text="=", font=btnFont, bg=color, command=lambda:operation("equal"))
+btnEqual=Button(buttonFrame, text="=", font=btnFont, bg=color, command=equal)
 btnDecimal=Button(buttonFrame, text=".", font=btnFont, bg=color, command=lambda:showNumber("."))
 btnNegate=Button(buttonFrame, text="+/-", font=btnFont, bg=color)
 
