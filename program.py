@@ -29,6 +29,7 @@ def equal():
     
     display.delete(0, END) # Clear.
     display.insert(0, result) # Show result.
+    enableOperator()
         
 
 def operation(value):
@@ -49,6 +50,16 @@ def operation(value):
     btnExponent.config(state=DISABLED)
     btnInverse.config(state=DISABLED)
     btnSquare.config(state=DISABLED)
+
+def enableOperator():
+    btnAdd.config(state=NORMAL)
+    btnSubtract.config(state=NORMAL)
+    btnMultiply.config(state=NORMAL)
+    btnDivide.config(state=NORMAL)
+    btnExponent.config(state=NORMAL)
+    btnInverse.config(state=NORMAL)
+    btnSquare.config(state=NORMAL)
+    btnDecimal.config(state=NORMAL)
     
 #settings
 color="orange"
