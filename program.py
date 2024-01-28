@@ -7,6 +7,16 @@ root.iconbitmap("icon/cal-logo.ico")
 root.geometry("300x400")
 root.resizable(0, 0)
 
+def negate():
+    result = float(display.get()) * -1
+    display.delete(0, END)
+    display.insert(0, result)
+
+def square():
+    result = float(display.get()) ** 2
+    display.delete(0, END)
+    display.insert(0, result)
+
 def inverse():
     # 1 / x
     if display.get() == "0":
@@ -99,7 +109,7 @@ btnQuit.grid(row=0, column=2, columnspan=2, ipadx=35, sticky="WE")
 
 #opeator button
 btnInverse=Button(buttonFrame, text="1/x", font=btnFont, bg=color, command=inverse)
-btnSquare=Button(buttonFrame, text="x^2", font=btnFont, bg=color)
+btnSquare=Button(buttonFrame, text="x^2", font=btnFont, bg=color, command=square)
 btnExponent=Button(buttonFrame, text="x^n", font=btnFont, bg=color, command=lambda:operation("exponent"))
 btnDivide=Button(buttonFrame, text="/", font=btnFont, bg=color, command=lambda:operation("divide"))
 btnMultiply=Button(buttonFrame, text="x", font=btnFont, bg=color, command=lambda:operation("multiply"))
@@ -107,7 +117,7 @@ btnSubtract=Button(buttonFrame, text="-", font=btnFont, bg=color, command=lambda
 btnAdd=Button(buttonFrame, text="+", font=btnFont, bg=color, command=lambda:operation("add"))
 btnEqual=Button(buttonFrame, text="=", font=btnFont, bg=color, command=equal)
 btnDecimal=Button(buttonFrame, text=".", font=btnFont, bg=color, command=lambda:showNumber("."))
-btnNegate=Button(buttonFrame, text="+/-", font=btnFont, bg=color)
+btnNegate=Button(buttonFrame, text="+/-", font=btnFont, bg=color,  command=negate)
 
 #number button
 btn9=Button(buttonFrame, text="9", font=btnFont, bg="black", fg="white", command=lambda:showNumber(9))
