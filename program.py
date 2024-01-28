@@ -9,10 +9,28 @@ root.resizable(0, 0)
 
 def showNumber(number):
     display.insert(END, number) #Let the numbers follow each other.
-    
     if "." in display.get():
         btnDecimal.config(state=DISABLED)
 
+def operation(value):
+    global firstNumber
+    global operator
+    operator = value
+    firstNumber = display.get()
+
+    #reset state
+    btnDecimal.config(state=NORMAL)
+    display.delete(0, END)
+
+    #disable operator buuton
+    btnAdd.config(state=DISABLED)
+    btnSubtract.config(state=DISABLED)
+    btnMultiply.config(state=DISABLED)
+    btnDivide.config(state=DISABLED)
+    btnExponent.config(state=DISABLED)
+    btnInverse.config(state=DISABLED)
+    btnSquare.config(state=DISABLED)
+    
 #settings
 color="orange"
 displayFont=("Arail", 35)
@@ -38,12 +56,12 @@ btnQuit.grid(row=0, column=2, columnspan=2, ipadx=35, sticky="WE")
 #opeator button
 btnInverse=Button(buttonFrame, text="1/x", font=btnFont, bg=color)
 btnSquare=Button(buttonFrame, text="x^2", font=btnFont, bg=color)
-btnExponent=Button(buttonFrame, text="x^n", font=btnFont, bg=color)
-btnDivide=Button(buttonFrame, text="/", font=btnFont, bg=color)
-btnMultiply=Button(buttonFrame, text="x", font=btnFont, bg=color)
-btnSubtract=Button(buttonFrame, text="-", font=btnFont, bg=color)
-btnAdd=Button(buttonFrame, text="+", font=btnFont, bg=color)
-btnEqual=Button(buttonFrame, text="=", font=btnFont, bg=color)
+btnExponent=Button(buttonFrame, text="x^n", font=btnFont, bg=color, command=lambda:operation("exponent"))
+btnDivide=Button(buttonFrame, text="/", font=btnFont, bg=color, command=lambda:operation("divide"))
+btnMultiply=Button(buttonFrame, text="x", font=btnFont, bg=color, command=lambda:operation("multiply"))
+btnSubtract=Button(buttonFrame, text="-", font=btnFont, bg=color, command=lambda:operation("subtract"))
+btnAdd=Button(buttonFrame, text="+", font=btnFont, bg=color, command=lambda:operation("add"))
+btnEqual=Button(buttonFrame, text="=", font=btnFont, bg=color, command=lambda:operation("equal"))
 btnDecimal=Button(buttonFrame, text=".", font=btnFont, bg=color, command=lambda:showNumber("."))
 btnNegate=Button(buttonFrame, text="+/-", font=btnFont, bg=color)
 
