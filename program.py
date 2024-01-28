@@ -7,6 +7,16 @@ root.iconbitmap("icon/cal-logo.ico")
 root.geometry("300x400")
 root.resizable(0, 0)
 
+def inverse():
+    # 1 / x
+    if display.get() == "0":
+        result = "ERROR"
+    else:
+        result = 1 / float(display.get())
+    
+    display.delete(0, END)
+    display.insert(0, result)
+
 def clearDisplay():
     display.delete(0, END)
     enableOperator()
@@ -88,7 +98,7 @@ btnClear.grid(row=0, column=0, columnspan=2, ipadx=35, sticky="WE") # columnspan
 btnQuit.grid(row=0, column=2, columnspan=2, ipadx=35, sticky="WE")
 
 #opeator button
-btnInverse=Button(buttonFrame, text="1/x", font=btnFont, bg=color)
+btnInverse=Button(buttonFrame, text="1/x", font=btnFont, bg=color, command=inverse)
 btnSquare=Button(buttonFrame, text="x^2", font=btnFont, bg=color)
 btnExponent=Button(buttonFrame, text="x^n", font=btnFont, bg=color, command=lambda:operation("exponent"))
 btnDivide=Button(buttonFrame, text="/", font=btnFont, bg=color, command=lambda:operation("divide"))
