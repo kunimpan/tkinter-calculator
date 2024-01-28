@@ -41,5 +41,18 @@ btnEqual=Button(buttonFrame, text="=", font=btnFont, bg=color)
 btnDecimal=Button(buttonFrame, text=".", font=btnFont, bg=color)
 btnNegate=Button(buttonFrame, text="+/-", font=btnFont, bg=color)
 
+#number button
+btn9=Button(buttonFrame, text="9", font=btnFont, bg="black", fg="white")
+btn8=Button(buttonFrame, text="8", font=btnFont, bg="black", fg="white")
+btn7=Button(buttonFrame, text="7", font=btnFont, bg="black", fg="white")
+btn6=Button(buttonFrame, text="6", font=btnFont, bg="black", fg="white")
+btn5=Button(buttonFrame, text="5", font=btnFont, bg="black", fg="white")
+btn4=Button(buttonFrame, text="4", font=btnFont, bg="black", fg="white")
+btn3=Button(buttonFrame, text="3", font=btnFont, bg="black", fg="white")
+btn2=Button(buttonFrame, text="2", font=btnFont, bg="black", fg="white")
+btn1=Button(buttonFrame, text="1", font=btnFont, bg="black", fg="white")
+btn0=Button(buttonFrame, text="0", font=btnFont, bg="black", fg="white")
+
+
 
 root.mainloop()
